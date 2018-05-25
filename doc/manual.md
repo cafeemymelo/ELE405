@@ -116,7 +116,7 @@ import <module_name>
 (...)
 ```
 
-[Example Extended Least Squares](../examples/example_extended_least_squares.py)
+[Example Extended Least Squares](../examples/example_extended_least_square.py)
 
 --------------------------------------------------------------------------------
 
