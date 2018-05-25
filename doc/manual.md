@@ -1,4 +1,4 @@
-# Toolbox de Identificação de Sistemas em Python
+# System Identification Toolbox in Python
 
 ## Funções
 
@@ -13,6 +13,8 @@ Parâmetros de entrada:
 - *na* - Ordem do polinômio A(q^-1)= 1 + a1 * q^-1 + a2 * q^-2 + ... + a_na * q^-na
 
 - *nb* - Ordem do polinômio B(q^-1)= b0 + b1 * q^-1 + b2 * q^-2 + ... + b_nb * q^-nb
+
+- *nk* -
 
 - *u* - Dados de entrada
 
@@ -77,28 +79,44 @@ import <module_name>
 
 --------------------------------------------------------------------------------
 
-### Mínimos Quadrados Recursivos
+### Extended Least Squares
 
-*module_name.rls*
+*module_name.els*
 
-**Parâmetros**
+**Parameters**
 
-Parâmetros de entrada:
+Input Parameters:
 
-Parâmetros de saída:
+- *na* - Polynomial degree A(q^-1)= 1 + a1 * q^-1 + a2 * q^-2 + ... + a_na * q^-na
 
-**Descrição do algoritmo**
+- *nb* - Polynomial degree B(q^-1)= b0 + b1 * q^-1 + b2 * q^-2 + ... + b_nb * q^-nb
+
+- *nc* - Polynomial degree C(q^-1)= 1 + c1 * q^-1 + c2 * q^-2 + ... + c_nc * q^-nc
+
+- *u* - Input signal
+
+- *y* - Output signal
+
+- *n* - Number of executions of the algorithm. Default number is 10.
+
+- *nk* - Input signal delay
+
+Output Parameters:
+
+- *theta()* - Estimation of model parameters
+
+**Algorithm Description**
 
 ...
 
-**Forma de Uso**
+**How to use**
 
 ```
 import <module_name>
 (...)
 ```
 
-[Exemplo Mínimos Quadrados Recursivos](../examples/example_recursive_least_square.py)
+[Example Extended Least Squares](../examples/example_extended_least_squares.py)
 
 --------------------------------------------------------------------------------
 
