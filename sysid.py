@@ -35,7 +35,7 @@ def ls(na, nb, u, y, nk=0):
         raise ValueError('Y and U must have same length!')
 
     # Number of coefficients to be estimated
-    # (a_1, a_2, a_3,..., a_na, b_0, b_1, b_2, b_nb)
+    # (a_1, a_2, a_3,..., a_na, b_0, b_1, b_2,..., b_nb)
     M = na + nb + 1
 
     # Delay maximum needed
@@ -91,7 +91,7 @@ def iv(na, nb, u, y, y2, nk=0):
     :param nb: number of poles from B;
     :param u: input signal;
     :param y: output signal;
-    :param y2:
+    :param y2: output signal;
     :param nk: output signal delay;
     :return: coefficients of A and B in this order;
     '''
@@ -104,7 +104,7 @@ def iv(na, nb, u, y, y2, nk=0):
         raise ValueError('Y, Y2 and U must have same length!')
 
     # Number of coefficients to be estimated
-    # (a_1, a_2, a_3,..., a_na, b_0, b_1, b_2, b_nb)
+    # (a_1, a_2, a_3,..., a_na, b_0, b_1, b_2,..., b_nb)
     M = na + nb + 1
 
     # Delay maximum needed
@@ -160,7 +160,7 @@ def iv(na, nb, u, y, y2, nk=0):
 
 def els(na, nb, nc, u, y, nk=0, n=10):
     """
-    Implementation of Extended Least Square (ELS) algorithm for
+    Implementation of Extended Least Squares (ELS) algorithm for
     Auto-Regressive Moving-Averege with eXogenous input(ARMAX) model
     ARMAX model:
                     A*y = B*u + C*e
@@ -203,10 +203,11 @@ def els(na, nb, nc, u, y, nk=0, n=10):
     while iteration >= 0:
         if iteration == n:
             # at the first iteration, we don't have the error yet, thus
-            # Least Square is used one time to find the error;
+            # Least Squares is used one time to find the error;
             a, b = ls(na, nb, u, y)
             # initial estimation of c;
             c = a
+
         else:
             # it points to the first row of phi matrix;
             k = 0
